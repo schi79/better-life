@@ -133,7 +133,11 @@ const ProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
 
         {/* Add to Cart Button */}
         <Button
-          onClick={() => onAddToCart(product, selectedVariant)}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            onAddToCart(product, selectedVariant);
+          }}
           className="w-full bg-emerald-600 hover:bg-emerald-700 text-white group-hover:bg-emerald-700 transition-colors"
           disabled={!product.inStock}
         >
@@ -142,6 +146,7 @@ const ProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
         </Button>
       </div>
     </div>
+  </Link>
   );
 };
 
