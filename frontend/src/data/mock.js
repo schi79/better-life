@@ -314,31 +314,31 @@ export const blogPosts = [
 export const moods = [
   {
     id: 1,
-    name: 'Energize',
-    slug: 'energize',
-    color: '#FF6B35',
-    products: [1, 2, 9]
+    name: 'Chill',
+    slug: 'chill',
+    color: '#45B7D1',
+    products: [2, 7]  // Purple Soda, Z Cake
   },
   {
     id: 2,
-    name: 'Focus',
-    slug: 'focus',
-    color: '#4ECDC4',
-    products: [1, 3, 4]
+    name: 'Happy',
+    slug: 'happy',
+    color: '#FF6B35',
+    products: [3, 4, 10]  // Cookies and Cream, Mochi, Obama Runtz
   },
   {
     id: 3,
-    name: 'Relax',
-    slug: 'relax',
-    color: '#45B7D1',
-    products: [5, 7, 10]
+    name: 'Sleep',
+    slug: 'sleep',
+    color: '#6B46C1',
+    products: [2, 7]  // Purple Soda, Z Cake
   },
   {
     id: 4,
-    name: 'Restore',
-    slug: 'restore',
-    color: '#96CEB4',
-    products: [6, 7, 8]
+    name: 'Social',
+    slug: 'social',
+    color: '#10B981',
+    products: [1, 5, 6]  // Deep Space, Dirty Taxi, Orange Sunset
   }
 ];
 
