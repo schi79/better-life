@@ -4,6 +4,7 @@ from models import Order, OrderCreate, MessageResponse
 from services import OrderService
 from auth import get_current_active_user
 from models import User
+from database import get_database
 
 router = APIRouter(prefix="/orders", tags=["Orders"])
 
