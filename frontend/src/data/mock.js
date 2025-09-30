@@ -233,38 +233,38 @@ export const products = [
 export const testimonials = [
   {
     id: 1,
-    name: 'Sarah Johnson',
+    name: 'Davion Taylor',
     rating: 5,
-    text: "Amazing quality supplements! I've been using the Omega-3 complex for months and feel the difference in my energy levels and overall health.",
-    product: 'Premium Omega-3 Complex'
+    text: "Thank God I got a half oz of this and only 3.5 of the animal mints. This strain is KILLER! Half a blunt and I'm floating. Can't even describe the buzz its so well rounded.",
+    product: 'High THCa Deep Space'
   },
   {
     id: 2,
-    name: 'Mike Rodriguez',
+    name: 'Chris Teran',
     rating: 5,
-    text: "The fitness equipment is top-notch. The adjustable kettlebell set has transformed my home workouts completely!",
-    product: 'Adjustable Kettlebell Set'
+    text: "I spent weeks researching best thca before making the decision to try it for the first time and man this blew my expectations! taste is amazing nice cookies every hit, and the smell is crazy! def will be shopping again soon.",
+    product: 'High THCa Cookies and Cream'
   },
   {
     id: 3,
-    name: 'Emily Chen',
+    name: 'Wrs Hurmer',
     rating: 5,
-    text: "The Vitamin C serum is incredible! My skin looks brighter and more radiant than ever. Will definitely order again.",
-    product: 'Vitamin C Brightening Serum'
+    text: "Super smooth, not as flavorful when compared to other garlic strains. Got me stoned no problem, and looks and smells amazing! Great dabs for the cost.",
+    product: 'Big Dipper Live Rosin'
   },
   {
     id: 4,
-    name: 'David Thompson',
+    name: 'Jacob DeGrand',
     rating: 5,
-    text: "Fast shipping and premium quality products. The wellness bundles offer great value and everything arrived perfectly packaged.",
-    product: 'Hydrating Skincare Bundle'
+    text: "Pretty good. Unique nose. Better Lifestyles always delivers and fast. Double vacuum sealed mylar and vacuum sealed jars. Never had a bad strain from these guys. Excellent customer service too!",
+    product: 'High THCa Purple Soda'
   },
   {
     id: 5,
-    name: 'Lisa Martinez',
+    name: 'Chad Owen',
     rating: 5,
-    text: "The yoga mat set is amazing! Non-slip surface works perfectly and the blocks are sturdy. Highly recommend!",
-    product: 'Premium Yoga Mat & Block Set'
+    text: "I can't say enough about this strain. It really is god mode bud. I bought an ounce of this and I absolutely love this. It tastes so gassy and fresh at the same time. Buds were so beautiful. Will buy this again for sure. 10/10",
+    product: 'High THCa Mochi'
   }
 ];
 
