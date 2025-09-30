@@ -142,10 +142,10 @@ const ProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
             onAddToCart(product, selectedVariant);
           }}
           className="w-full bg-emerald-600 hover:bg-emerald-700 text-white group-hover:bg-emerald-700 transition-colors"
-          disabled={!product.inStock}
+          disabled={!product.in_stock}
         >
           <Plus className="h-4 w-4 mr-2" />
-          {product.inStock ? 'Add to Cart' : 'Out of Stock'}
+          {product.in_stock ? 'Add to Cart' : 'Out of Stock'}
         </Button>
       </div>
     </div>
