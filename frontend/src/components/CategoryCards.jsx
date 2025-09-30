@@ -5,28 +5,28 @@ import { ArrowRight } from 'lucide-react';
 const CategoryCards = () => {
   const categories = [
     {
-      name: 'Supplements',
-      image: 'https://images.unsplash.com/photo-1664956618021-73c47736845e',
-      description: 'Premium vitamins & minerals',
-      color: 'from-blue-50 to-blue-100'
-    },
-    {
-      name: 'Fitness',
-      image: 'https://images.unsplash.com/photo-1627257058769-0a99529e4312',
-      description: 'Equipment for home workouts',
+      name: 'Flowers',
+      image: 'https://hmp.store/wp-content/uploads/2025/08/Deep-Spac.png',
+      description: 'Premium THCa flower strains',
       color: 'from-green-50 to-green-100'
     },
     {
-      name: 'Skincare',
-      image: 'https://images.pexels.com/photos/3321416/pexels-photo-3321416.jpeg',
-      description: 'Natural beauty essentials',
-      color: 'from-pink-50 to-pink-100'
+      name: 'Extracts',
+      image: 'https://hmp.store/wp-content/uploads/2025/07/THCa-Dantes-Driver-Rosin-a-300x300.jpg',
+      description: 'Live rosin & concentrates',
+      color: 'from-yellow-50 to-yellow-100'
     },
     {
-      name: 'Wellness',
-      image: 'https://images.pexels.com/photos/6694187/pexels-photo-6694187.jpeg',
-      description: 'Complete wellness solutions',
+      name: 'Bundles',
+      image: 'https://hmp.store/wp-content/uploads/2025/07/Bubble-Gum-Runtz.png',
+      description: 'Value packs & deals',
       color: 'from-purple-50 to-purple-100'
+    },
+    {
+      name: 'Wholesale',
+      image: 'https://hmp.store/wp-content/uploads/2025/08/mochi-2.png',
+      description: 'Bulk pricing available',
+      color: 'from-blue-50 to-blue-100'
     }
   ];
 
