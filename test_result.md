@@ -274,11 +274,10 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Homepage Layout & Design"
-    - "Navigation & Header"
-    - "E-commerce Functionality"
-  stuck_tasks: []
-  test_all: true
+    - "Product Detail Pages"
+  stuck_tasks:
+    - "Product Detail Pages"
+  test_all: false
   test_priority: "high_first"
 
 agent_communication:
