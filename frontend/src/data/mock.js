@@ -1,40 +1,40 @@
-// Mock data for Better Lifestyles
+// Mock data for Better Lifestyles - THCA Cannabis Store
 
 export const categories = [
   {
     id: 1,
-    name: 'Supplements',
-    slug: 'supplements',
-    image: 'https://images.unsplash.com/photo-1664956618021-73c47736845e',
-    description: 'Premium wellness supplements for optimal health'
+    name: 'High THCa Flowers',
+    slug: 'high-thca-flowers',
+    image: 'https://hmp.store/wp-content/uploads/2025/08/Deep-Spac.png',
+    description: 'Premium indoor and outdoor THCa flower strains'
   },
   {
     id: 2,
-    name: 'Fitness Equipment',
-    slug: 'fitness-equipment',
-    image: 'https://images.unsplash.com/photo-1627257058769-0a99529e4312',
-    description: 'Quality fitness gear for home workouts'
+    name: 'Concentrates', 
+    slug: 'concentrates',
+    image: 'https://hmp.store/wp-content/uploads/2025/07/THCa-Dantes-Driver-Rosin-a-300x300.jpg',
+    description: 'Live rosin and premium THCa concentrates'
   },
   {
     id: 3,
-    name: 'Skincare',
-    slug: 'skincare',
-    image: 'https://images.pexels.com/photos/3321416/pexels-photo-3321416.jpeg',
-    description: 'Natural skincare products for radiant skin'
+    name: 'Edibles',
+    slug: 'edibles',
+    image: 'https://hmp.store/wp-content/uploads/2025/07/Hero-Image-1-1024x674.png',
+    description: 'THCa-infused edibles and treats'
   },
   {
     id: 4,
-    name: 'Wellness Bundles',
-    slug: 'wellness-bundles',
-    image: 'https://images.pexels.com/photos/6694187/pexels-photo-6694187.jpeg',
-    description: 'Curated wellness product combinations'
+    name: 'Bundles',
+    slug: 'bundles',
+    image: 'https://hmp.store/wp-content/uploads/2025/07/Bubble-Gum-Runtz.png',
+    description: 'Curated THCa product bundles and deals'
   },
   {
     id: 5,
-    name: 'Bulk Orders',
-    slug: 'bulk-orders',
-    image: 'https://images.unsplash.com/photo-1591311630200-ffa9120a540f',
-    description: 'Wholesale pricing for bulk purchases'
+    name: 'Wholesale',
+    slug: 'wholesale',
+    image: 'https://hmp.store/wp-content/uploads/2025/08/mochi-2.png',
+    description: 'Bulk THCa products for wholesale buyers'
   }
 ];
 
