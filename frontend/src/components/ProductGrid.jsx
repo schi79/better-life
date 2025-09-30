@@ -126,9 +126,9 @@ const ProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
             <span className="text-lg font-bold text-gray-800">
               ${product.price}
             </span>
-            {product.originalPrice && (
+            {product.original_price && (
               <span className="text-sm text-gray-500 line-through">
-                ${product.originalPrice}
+                ${product.original_price}
               </span>
             )}
           </div>
