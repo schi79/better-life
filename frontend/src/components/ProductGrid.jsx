@@ -140,8 +140,8 @@ const ProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
 };
 
 const ProductGrid = ({ 
-  title = "Explore Our Premium Products",
-  subtitle = "Discover our curated selection of wellness essentials",
+  title = "Explore Our Premium Flowers",
+  subtitle = "Discover our curated selection of high-quality THCa strains",
   showAll = false,
   limit = 8,
   onAddToCart = () => {},
