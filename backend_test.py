@@ -151,15 +151,36 @@ class BackendTester:
 
     async def test_product_filtering(self):
         """Test product filtering by category and type"""
-        # Test category filtering
+        # Test category filtering - high-thca-flowers
         success, data, status = await self.make_request("GET", "/products/?category=high-thca-flowers")
         
         if success and isinstance(data, list):
             flower_count = len(data)
-            self.log_test("Product Category Filtering", True, 
+            self.log_test("Product Category Filtering (high-thca-flowers)", True, 
                          f"Retrieved {flower_count} high-thca-flowers products")
         else:
-            self.log_test("Product Category Filtering", False, f"Category filtering failed (Status: {status})", data)
+            self.log_test("Product Category Filtering (high-thca-flowers)", False, f"Category filtering failed (Status: {status})", data)
+
+        # Test category filtering - edibles (NEW TEST)
+        success, data, status = await self.make_request("GET", "/products/?category=edibles")
+        
+        if success and isinstance(data, list):
+            edibles_count = len(data)
+            self.log_test("Product Category Filtering (edibles)", True, 
+                         f"Retrieved {edibles_count} edibles products (category properly supported)")
+        else:
+            self.log_test("Product Category Filtering (edibles)", False, f"Edibles category filtering failed (Status: {status})", data)
+
+        # Test category filtering - concentrates (NEW TEST)
+        success, data, status = await self.make_request("GET", "/products/?category=concentrates")
+        
+        if success and isinstance(data, list):
+            concentrates_count = len(data)
+            big_dipper_found = any("Big Dipper" in product.get('name', '') for product in data)
+            self.log_test("Product Category Filtering (concentrates)", True, 
+                         f"Retrieved {concentrates_count} concentrates products. Big Dipper Live Rosin found: {big_dipper_found}")
+        else:
+            self.log_test("Product Category Filtering (concentrates)", False, f"Concentrates category filtering failed (Status: {status})", data)
 
         # Test type filtering
         success, data, status = await self.make_request("GET", "/products/?product_type=Indica")
