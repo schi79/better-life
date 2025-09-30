@@ -20,6 +20,7 @@ import { Toaster } from "./components/ui/toaster";
 import ProductDetail from "./pages/ProductDetail";
 import Shop from "./pages/Shop";
 import ProductCOA from "./pages/ProductCOA";
+import ProductCOAList from "./pages/ProductCOAList";
 import CategoryPage from "./pages/CategoryPage";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
