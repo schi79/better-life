@@ -12,7 +12,7 @@ from typing import Dict, Any, Optional
 from datetime import datetime
 
 # Get backend URL from frontend .env
-BACKEND_URL = "https://better-life-store.preview.emergentagent.com/api"
+BACKEND_URL = "https://hemp-verify.preview.emergentagent.com/api"
 
 class BackendTester:
     def __init__(self):
