@@ -149,20 +149,20 @@ const Header = ({ cartItems = [], onCartClick }) => {
               <a href="/shop" className="block px-3 py-2 text-gray-700 hover:text-emerald-600">
                 Shop
               </a>
-              <a href="/supplements" className="block px-3 py-2 text-gray-700 hover:text-emerald-600">
-                Supplements
+              <a href="/flowers" className="block px-3 py-2 text-gray-700 hover:text-emerald-600">
+                Flowers
               </a>
-              <a href="/fitness" className="block px-3 py-2 text-gray-700 hover:text-emerald-600">
-                Fitness
+              <a href="/edibles" className="block px-3 py-2 text-gray-700 hover:text-emerald-600">
+                Edibles
               </a>
-              <a href="/skincare" className="block px-3 py-2 text-gray-700 hover:text-emerald-600">
-                Skincare
+              <a href="/concentrates" className="block px-3 py-2 text-gray-700 hover:text-emerald-600">
+                Concentrates
               </a>
               <a href="/learn" className="block px-3 py-2 text-gray-700 hover:text-emerald-600">
                 Learn
               </a>
-              <a href="/bulk-deals" className="block px-3 py-2 text-gray-700 hover:text-emerald-600">
-                Bulk Deals
+              <a href="/wholesale-deals" className="block px-3 py-2 text-gray-700 hover:text-emerald-600">
+                Wholesale Deals
               </a>
               <a href="/contact" className="block px-3 py-2 text-gray-700 hover:text-emerald-600">
                 Contact Us
