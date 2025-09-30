@@ -64,7 +64,7 @@ const ProductDetail = ({ cartItems, onAddToCart, onCartClick }) => {
           <span className="text-gray-800">{product.name}</span>
         </nav>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-16">
           {/* Product Images */}
           <div className="space-y-4">
             {/* Main Image */}
@@ -77,12 +77,12 @@ const ProductDetail = ({ cartItems, onAddToCart, onCartClick }) => {
             </div>
 
             {/* Image Thumbnails */}
-            <div className="flex space-x-2">
+            <div className="flex space-x-2 overflow-x-auto">
               {productImages.map((image, index) => (
                 <button
                   key={index}
                   onClick={() => setSelectedImage(index)}
-                  className={`w-20 h-20 rounded-lg overflow-hidden border-2 ${
+                  className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden border-2 ${
                     selectedImage === index ? 'border-emerald-500' : 'border-gray-200'
                   }`}
                 >
