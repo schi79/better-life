@@ -224,6 +224,9 @@ frontend:
       - working: true
         agent: "testing"
         comment: "✅ FIXED - Product detail pages now working correctly! Age verification modal appears on initial load but after clicking 'Yes', product navigation works perfectly. Direct product URLs work fine. COA links from product pages also functional. Product detail pages show complete information including THCa percentages, effects, pricing, variants, and lab testing links."
+      - working: true
+        agent: "testing"
+        comment: "✅ MOBILE PRODUCT DETAILS RE-TESTED - Product detail pages work perfectly on mobile (375x667). Navigation from homepage product cards works correctly, direct product URLs function properly (tested /product/high-thca-deep-space). Mobile layout displays product images, titles, descriptions, variant selection, quantity controls, and add to cart buttons properly. Add to cart functionality works on mobile with cart sidebar opening correctly. Touch interactions work as expected."
 
   - task: "Shop Page & Filtering"
     implemented: true
