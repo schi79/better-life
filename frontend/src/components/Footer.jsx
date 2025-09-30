@@ -146,7 +146,7 @@ const Footer = () => {
 
         {/* Contact Information */}
         <div className="border-t border-gray-800 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-center md:text-left">
             {/* General Queries */}
             <div className="flex items-center justify-center md:justify-start">
               <Mail className="h-5 w-5 text-emerald-500 mr-3" />
