@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Test the Better Lifestyles e-commerce website comprehensively. This is a lifestyle products store that's a clone of HMP Store but with wellness/fitness products instead of cannabis."
+user_problem_statement: "Test the complete Better Lifestyles THCa cannabis e-commerce website with all new functionality - comprehensive testing of product navigation, details, COA pages, shop filtering, category pages, e-commerce functionality, age verification, and mobile responsiveness."
 
 frontend:
   - task: "Homepage Layout & Design"
