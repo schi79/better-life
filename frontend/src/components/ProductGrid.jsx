@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { Star, Plus, Heart } from 'lucide-react';
-import { products } from '../data/mock';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const ProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
   const [selectedVariant, setSelectedVariant] = useState(product.variants[0]);
