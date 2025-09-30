@@ -68,10 +68,10 @@ const Header = ({ cartItems = [], onCartClick }) => {
                 )}
               </div>
 
-              <a href="/edibles" className="text-gray-700 hover:text-emerald-600 font-medium">
+              <a href="/category/edibles" className="text-gray-700 hover:text-emerald-600 font-medium">
                 Edibles
               </a>
-              <a href="/concentrates" className="text-gray-700 hover:text-emerald-600 font-medium">
+              <a href="/category/concentrates" className="text-gray-700 hover:text-emerald-600 font-medium">
                 Concentrates
               </a>
               
