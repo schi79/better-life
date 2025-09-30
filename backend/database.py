@@ -1,6 +1,12 @@
 from motor.motor_asyncio import AsyncIOMotorClient, AsyncIOMotorDatabase
 from typing import Optional
 import os
+from dotenv import load_dotenv
+from pathlib import Path
+
+# Load environment variables
+ROOT_DIR = Path(__file__).parent
+load_dotenv(ROOT_DIR / '.env')
 
 class Database:
     client: Optional[AsyncIOMotorClient] = None
