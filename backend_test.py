@@ -299,27 +299,43 @@ class BackendTester:
     # ==================== COA API TESTS ====================
     
     async def test_get_coa(self):
-        """Test getting Certificate of Analysis"""
-        # First get a product to test COA with
+        """Test getting Certificate of Analysis for multiple products"""
+        # First get all products to test COA with
         success, products, status = await self.make_request("GET", "/products/")
         
         if not success or not products:
             self.log_test("Get COA", False, "No products available to test COA with")
             return
-            
-        test_product = products[0]
-        slug = test_product.get('slug')
         
-        success, data, status = await self.make_request("GET", f"/coa/{slug}")
+        coa_success_count = 0
+        coa_fail_count = 0
         
-        if success and "cannabinoids" in data and "terpenes" in data:
-            cannabinoid_count = len(data.get("cannabinoids", []))
-            terpene_count = len(data.get("terpenes", []))
+        # Test COA for first few products
+        for i, product in enumerate(products[:3]):  # Test first 3 products
+            slug = product.get('slug')
+            if not slug:
+                continue
+                
+            success, data, status = await self.make_request("GET", f"/coa/{slug}")
             
-            self.log_test("Get COA", True, 
-                         f"COA retrieved for {test_product.get('name')} - {cannabinoid_count} cannabinoids, {terpene_count} terpenes")
+            if success and "cannabinoids" in data and "terpenes" in data:
+                cannabinoid_count = len(data.get("cannabinoids", []))
+                terpene_count = len(data.get("terpenes", []))
+                coa_success_count += 1
+                
+                self.log_test(f"Get COA - {product.get('name')}", True, 
+                             f"COA retrieved - {cannabinoid_count} cannabinoids, {terpene_count} terpenes")
+            else:
+                coa_fail_count += 1
+                self.log_test(f"Get COA - {product.get('name')}", False, f"Failed to get COA (Status: {status})", data)
+        
+        # Overall COA functionality test
+        if coa_success_count > 0:
+            self.log_test("COA API Overall Functionality", True, 
+                         f"COA endpoint working - {coa_success_count} successful, {coa_fail_count} failed")
         else:
-            self.log_test("Get COA", False, f"Failed to get COA (Status: {status})", data)
+            self.log_test("COA API Overall Functionality", False, 
+                         f"COA endpoint not working - {coa_fail_count} failures")
 
     # ==================== ORDERS API TESTS ====================
     
