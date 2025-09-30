@@ -7,24 +7,28 @@ const CategoryCards = () => {
   const categories = [
     {
       name: 'Flowers',
+      slug: 'high-thca-flowers',  // Match backend category
       image: 'https://hmp.store/wp-content/uploads/2025/08/Deep-Spac.png',
       description: 'Premium THCa flower strains',
       color: 'from-green-50 to-green-100'
     },
     {
       name: 'Extracts',
+      slug: 'concentrates',  // Match backend category
       image: 'https://hmp.store/wp-content/uploads/2025/07/THCa-Dantes-Driver-Rosin-a-300x300.jpg',
       description: 'Live rosin & concentrates',
       color: 'from-yellow-50 to-yellow-100'
     },
     {
       name: 'Bundles',
+      slug: 'bundles',  // Match backend category
       image: 'https://hmp.store/wp-content/uploads/2025/07/Bubble-Gum-Runtz.png',
       description: 'Value packs & deals',
       color: 'from-purple-50 to-purple-100'
     },
     {
       name: 'Wholesale',
+      slug: 'wholesale',  // Match backend category
       image: 'https://hmp.store/wp-content/uploads/2025/08/mochi-2.png',
       description: 'Bulk pricing available',
       color: 'from-blue-50 to-blue-100'
