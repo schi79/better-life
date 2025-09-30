@@ -23,13 +23,13 @@ const HeroSection = () => {
                 <span className="text-emerald-200">ELEVATION.</span>
                 <br />
                 <span className="text-2xl lg:text-3xl font-normal">
-                  Wellness That Hits Different.
+                  THCa That Hits Different.
                 </span>
               </h1>
 
               {/* Subtitle */}
               <p className="text-lg lg:text-xl text-emerald-50 mb-8 max-w-md">
-                Top-shelf quality, pure ingredients, and full transparency—wellness products designed for those who demand more.
+                Top-shelf potency, rich flavor, and full compliance—THCa flower and extracts designed for those who demand more.
               </p>
 
               {/* CTA Button */}
