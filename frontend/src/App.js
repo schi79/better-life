@@ -53,6 +53,7 @@ const Home = ({ cartItems, onAddToCart, onAddToWishlist, onCartClick }) => {
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [wishlistItems, setWishlistItems] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   // Load cart from localStorage on mount
   useEffect(() => {
@@ -102,6 +103,9 @@ function App() {
 
       return [...prevItems, cartItem];
     });
+    
+    // Show cart sidebar when item is added
+    setIsCartOpen(true);
   };
 
   const handleAddToWishlist = (product) => {
@@ -121,6 +125,31 @@ function App() {
     });
   };
 
+  const handleUpdateQuantity = (id, variant, newQuantity) => {
+    if (newQuantity === 0) {
+      handleRemoveItem(id, variant);
+      return;
+    }
+
+    setCartItems(prevItems =>
+      prevItems.map(item =>
+        item.id === id && item.variant === variant
+          ? { ...item, quantity: newQuantity }
+          : item
+      )
+    );
+  };
+
+  const handleRemoveItem = (id, variant) => {
+    setCartItems(prevItems =>
+      prevItems.filter(item => !(item.id === id && item.variant === variant))
+    );
+  };
+
+  const handleCartClick = () => {
+    setIsCartOpen(true);
+  };
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -132,11 +161,20 @@ function App() {
                 cartItems={cartItems}
                 onAddToCart={handleAddToCart}
                 onAddToWishlist={handleAddToWishlist}
+                onCartClick={handleCartClick}
               />
             }
           />
         </Routes>
       </BrowserRouter>
+      
+      <CartSidebar
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        cartItems={cartItems}
+        onUpdateQuantity={handleUpdateQuantity}
+        onRemoveItem={handleRemoveItem}
+      />
       
       <AgeVerificationModal />
       <Toaster />
