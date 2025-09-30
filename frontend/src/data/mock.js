@@ -345,34 +345,33 @@ export const moods = [
 export const navigationMenus = {
   categories: [
     {
-      name: 'Premium Supplements',
+      name: 'High THCa Flowers',
       items: [
-        'Omega-3 Complex',
-        'Vitamin D3 + K2',
-        'Multivitamins',
-        'Probiotics',
-        'Protein Powders',
-        'Supplement Bundles',
-        'Bulk Supplements'
+        'High THCa Indoor Flower',
+        'High THCa Light Dep Flower', 
+        'High THCa Smalls Strains',
+        'High THCa Budget Strains',
+        'High THCa Bundles',
+        'High THCa Wholesale'
       ]
     }
   ],
   shopByMood: [
-    'Energize',
-    'Focus', 
-    'Relax',
-    'Restore'
+    'Chill',
+    'Happy',
+    'Sleep',
+    'Social'
   ],
   more: [
     'Best Selling',
     'New Arrivals',
     'Bundle Deals',
-    'Seasonal Favorites'
+    'Summer Flowers'
   ],
   learn: [
-    'Wellness Information',
-    'Product Guides',
-    'Affiliate Program',
+    'Shipping Information',
+    'Product COAs',
+    'Affiliate Registration',
     'Blog Articles'
   ]
 };
