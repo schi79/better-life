@@ -171,7 +171,7 @@ const ProductDetail = ({ cartItems, onAddToCart, onCartClick }) => {
               </div>
             </div>
 
-            {/* Variant Selection */}
+            {/* Size Selection */}
             <div>
               <h3 className="font-semibold text-gray-800 mb-3">Size:</h3>
               <div className="flex flex-wrap gap-2">
@@ -179,7 +179,7 @@ const ProductDetail = ({ cartItems, onAddToCart, onCartClick }) => {
                   <button
                     key={variant}
                     onClick={() => setSelectedVariant(variant)}
-                    className={`px-4 py-2 border rounded-lg transition-colors ${
+                    className={`px-3 py-2 sm:px-4 border rounded-lg transition-colors text-sm ${
                       selectedVariant === variant
                         ? 'border-emerald-500 bg-emerald-50 text-emerald-700'
                         : 'border-gray-300 hover:border-emerald-300'
@@ -197,14 +197,14 @@ const ProductDetail = ({ cartItems, onAddToCart, onCartClick }) => {
               <div className="flex items-center space-x-3">
                 <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="w-10 h-10 border border-gray-300 rounded-lg flex items-center justify-center hover:bg-gray-50"
+                  className="w-10 h-10 border border-gray-300 rounded-lg flex items-center justify-center hover:bg-gray-50 text-lg font-medium"
                 >
                   -
                 </button>
-                <span className="font-medium w-12 text-center">{quantity}</span>
+                <span className="font-medium w-12 text-center text-lg">{quantity}</span>
                 <button
                   onClick={() => setQuantity(quantity + 1)}
-                  className="w-10 h-10 border border-gray-300 rounded-lg flex items-center justify-center hover:bg-gray-50"
+                  className="w-10 h-10 border border-gray-300 rounded-lg flex items-center justify-center hover:bg-gray-50 text-lg font-medium"
                 >
                   +
                 </button>
@@ -219,14 +219,14 @@ const ProductDetail = ({ cartItems, onAddToCart, onCartClick }) => {
                     onAddToCart(product, selectedVariant);
                   }
                 }}
-                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 text-lg"
+                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-4 text-base sm:text-lg font-semibold"
                 disabled={!product.inStock}
               >
                 <ShoppingCart className="h-5 w-5 mr-2" />
                 {product.inStock ? `Add to Cart - $${(product.price * quantity).toFixed(2)}` : 'Out of Stock'}
               </Button>
               
-              <Button variant="outline" className="w-full py-3">
+              <Button variant="outline" className="w-full py-4 text-base">
                 <Heart className="h-5 w-5 mr-2" />
                 Add to Wishlist
               </Button>
