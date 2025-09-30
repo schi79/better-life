@@ -147,20 +147,6 @@ const Footer = () => {
         {/* Contact Information */}
         <div className="border-t border-gray-800 py-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
-            {/* Email */}
-            <div className="flex items-center justify-center md:justify-start">
-              <Mail className="h-5 w-5 text-emerald-500 mr-3" />
-              <div>
-                <p className="text-sm text-gray-400">EMAIL ID</p>
-                <a 
-                  href="mailto:betterlifestyles33@gmail.com" 
-                  className="text-white hover:text-emerald-400 transition-colors"
-                >
-                  betterlifestyles33@gmail.com
-                </a>
-              </div>
-            </div>
-
             {/* General Queries */}
             <div className="flex items-center justify-center md:justify-start">
               <Mail className="h-5 w-5 text-emerald-500 mr-3" />
