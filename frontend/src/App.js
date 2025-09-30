@@ -1,12 +1,24 @@
-import { useEffect } from "react";
-import "@/App.css";
+import React, { useState, useEffect } from "react";
+import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
+
+// Components
+import Header from "./components/Header";
+import HeroSection from "./components/HeroSection";
+import CategoryCards from "./components/CategoryCards";
+import ProductGrid from "./components/ProductGrid";
+import ShopByMoodSection from "./components/ShopByMoodSection";
+import TestimonialsSection from "./components/TestimonialsSection";
+import BlogSection from "./components/BlogSection";
+import Footer from "./components/Footer";
+import AgeVerificationModal from "./components/AgeVerificationModal";
+import { Toaster } from "./components/ui/toaster";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
-const Home = () => {
+const Home = ({ cartItems, onAddToCart, onAddToWishlist }) => {
   const helloWorldApi = async () => {
     try {
       const response = await axios.get(`${API}/`);
@@ -21,32 +33,112 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
+    <div className="min-h-screen bg-white">
+      <Header cartItems={cartItems} />
+      <HeroSection />
+      <CategoryCards />
+      <ProductGrid 
+        onAddToCart={onAddToCart}
+        onAddToWishlist={onAddToWishlist}
+      />
+      <ShopByMoodSection />
+      <TestimonialsSection />
+      <BlogSection />
+      <Footer />
     </div>
   );
 };
 
 function App() {
+  const [cartItems, setCartItems] = useState([]);
+  const [wishlistItems, setWishlistItems] = useState([]);
+
+  // Load cart from localStorage on mount
+  useEffect(() => {
+    const savedCart = localStorage.getItem('betterLifestylesCart');
+    const savedWishlist = localStorage.getItem('betterLifestylesWishlist');
+    
+    if (savedCart) {
+      setCartItems(JSON.parse(savedCart));
+    }
+    if (savedWishlist) {
+      setWishlistItems(JSON.parse(savedWishlist));
+    }
+  }, []);
+
+  // Save cart to localStorage when it changes
+  useEffect(() => {
+    localStorage.setItem('betterLifestylesCart', JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  // Save wishlist to localStorage when it changes
+  useEffect(() => {
+    localStorage.setItem('betterLifestylesWishlist', JSON.stringify(wishlistItems));
+  }, [wishlistItems]);
+
+  const handleAddToCart = (product, variant = null) => {
+    const cartItem = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      variant: variant || product.variants[0],
+      quantity: 1
+    };
+
+    setCartItems(prevItems => {
+      const existingItem = prevItems.find(
+        item => item.id === product.id && item.variant === cartItem.variant
+      );
+
+      if (existingItem) {
+        return prevItems.map(item =>
+          item.id === product.id && item.variant === cartItem.variant
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      }
+
+      return [...prevItems, cartItem];
+    });
+  };
+
+  const handleAddToWishlist = (product) => {
+    const wishlistItem = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image
+    };
+
+    setWishlistItems(prevItems => {
+      const exists = prevItems.find(item => item.id === product.id);
+      if (exists) {
+        return prevItems.filter(item => item.id !== product.id);
+      }
+      return [...prevItems, wishlistItem];
+    });
+  };
+
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
+          <Route 
+            path="/" 
+            element={
+              <Home 
+                cartItems={cartItems}
+                onAddToCart={handleAddToCart}
+                onAddToWishlist={handleAddToWishlist}
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
+      
+      <AgeVerificationModal />
+      <Toaster />
     </div>
   );
 }
