@@ -149,13 +149,13 @@ const Header = ({ cartItems = [], onCartClick }) => {
               <a href="/shop" className="block px-3 py-2 text-gray-700 hover:text-emerald-600">
                 Shop
               </a>
-              <a href="/flowers" className="block px-3 py-2 text-gray-700 hover:text-emerald-600">
+              <a href="/category/high-thca-flowers" className="block px-3 py-2 text-gray-700 hover:text-emerald-600">
                 Flowers
               </a>
-              <a href="/edibles" className="block px-3 py-2 text-gray-700 hover:text-emerald-600">
+              <a href="/category/edibles" className="block px-3 py-2 text-gray-700 hover:text-emerald-600">
                 Edibles
               </a>
-              <a href="/concentrates" className="block px-3 py-2 text-gray-700 hover:text-emerald-600">
+              <a href="/category/concentrates" className="block px-3 py-2 text-gray-700 hover:text-emerald-600">
                 Concentrates
               </a>
               <a href="/learn" className="block px-3 py-2 text-gray-700 hover:text-emerald-600">
