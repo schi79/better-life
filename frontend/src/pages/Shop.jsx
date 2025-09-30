@@ -228,7 +228,7 @@ const Shop = ({ cartItems, onAddToCart, onCartClick, onAddToWishlist }) => {
 
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Mobile Filters Toggle */}
-          <div className="lg:hidden">
+          <div className="block lg:hidden">
             <Button
               variant="outline"
               onClick={() => setShowFilters(!showFilters)}
