@@ -212,39 +212,6 @@ function App() {
               />
             }
           />
-          <Route 
-            path="/flowers" 
-            element={
-              <CategoryPage 
-                cartItems={cartItems}
-                onAddToCart={handleAddToCart}
-                onAddToWishlist={handleAddToWishlist}
-                onCartClick={handleCartClick}
-              />
-            }
-          />
-          <Route 
-            path="/edibles" 
-            element={
-              <CategoryPage 
-                cartItems={cartItems}
-                onAddToCart={handleAddToCart}
-                onAddToWishlist={handleAddToWishlist}
-                onCartClick={handleCartClick}
-              />
-            }
-          />
-          <Route 
-            path="/concentrates" 
-            element={
-              <CategoryPage 
-                cartItems={cartItems}
-                onAddToCart={handleAddToCart}
-                onAddToWishlist={handleAddToWishlist}
-                onCartClick={handleCartClick}
-              />
-            }
-          />
         </Routes>
       </BrowserRouter>
       
