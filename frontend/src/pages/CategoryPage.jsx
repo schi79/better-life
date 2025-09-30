@@ -264,9 +264,23 @@ const CategoryPage = ({ cartItems, onAddToCart, onCartClick, onAddToWishlist }) 
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
-          {sortedProducts.map(product => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+          {loading ? (
+            // Loading skeletons
+            Array(8).fill().map((_, i) => (
+              <div key={i} className="bg-white rounded-xl shadow-sm border border-gray-100 animate-pulse">
+                <div className="aspect-square bg-gray-200 rounded-t-xl"></div>
+                <div className="p-4">
+                  <div className="h-4 bg-gray-200 rounded mb-2"></div>
+                  <div className="h-3 bg-gray-200 rounded w-2/3 mb-4"></div>
+                  <div className="h-8 bg-gray-200 rounded"></div>
+                </div>
+              </div>
+            ))
+          ) : (
+            sortedProducts.map(product => (
+              <ProductCard key={product.id} product={product} />
+            ))
+          )}
         </div>
 
         {/* No products found */}
