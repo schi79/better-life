@@ -48,8 +48,8 @@ const HeroSection = () => {
                 {/* Main product image */}
                 <div className="relative z-10">
                   <img 
-                    src="https://images.pexels.com/photos/6694187/pexels-photo-6694187.jpeg" 
-                    alt="Better Lifestyles Products" 
+                    src="https://hmp.store/wp-content/uploads/2025/07/Hero-Image-1-1024x674.png" 
+                    alt="Better Lifestyles THCa Products" 
                     className="w-full max-w-lg mx-auto rounded-2xl shadow-2xl"
                   />
                 </div>
@@ -57,24 +57,24 @@ const HeroSection = () => {
                 {/* Floating product elements */}
                 <div className="absolute -top-4 -left-4 z-20">
                   <img 
-                    src="https://images.unsplash.com/photo-1625480498292-631335ea1510" 
-                    alt="Supplement" 
+                    src="https://hmp.store/wp-content/uploads/2025/08/Deep-Spac.png" 
+                    alt="THCa Flower" 
                     className="w-20 h-20 rounded-xl shadow-lg"
                   />
                 </div>
                 
                 <div className="absolute -bottom-6 -right-6 z-20">
                   <img 
-                    src="https://images.unsplash.com/photo-1573461160327-b450ce3d8e7f" 
-                    alt="Skincare" 
+                    src="https://hmp.store/wp-content/uploads/2025/08/Purple-Soda-1.png" 
+                    alt="Premium THCa" 
                     className="w-24 h-24 rounded-xl shadow-lg"
                   />
                 </div>
 
                 <div className="absolute top-1/2 -right-8 z-20 hidden lg:block">
                   <img 
-                    src="https://images.unsplash.com/photo-1664956618021-73c47736845e" 
-                    alt="Wellness" 
+                    src="https://hmp.store/wp-content/uploads/2025/07/THCa-Dantes-Driver-Rosin-a-300x300.jpg" 
+                    alt="Live Rosin" 
                     className="w-16 h-16 rounded-xl shadow-lg"
                   />
                 </div>
