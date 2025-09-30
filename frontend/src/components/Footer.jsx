@@ -179,10 +179,14 @@ const Footer = () => {
         <div className="border-t border-gray-800 py-6 text-center">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-gray-400">
-              You must be 18 years of age or older to purchase from this website. 
-              Products on this site are made with natural ingredients and are not intended to diagnose, treat, cure or prevent any disease. 
-              All information presented here is not meant to be a substitute for or alternative to, information from health care practitioners. 
-              Please consult your health care professional about potential interactions or other possible complications before using any product.
+              You must be 21 years of age or older to purchase from this website. 
+              Products on this site are either absent of delta-9 THC or contain a value of 0.3% or less delta-9 THC as made legal by the Farm Bill. 
+              Statements made on this site or on products have not been evaluated by the Food and Drug Administration. 
+              The efficacy of these products has not been confirmed by FDA-approved research. 
+              These products are not intended to diagnose, treat, cure or prevent any disease. 
+              All information presented on this site is not meant to be a substitute for or alternative to, information from health care practitioners. 
+              Please consult your health care professional about potential interactions or other possible complications before using any product. 
+              The Federal Food, Drug, and Cosmetic Act require this notice.
             </p>
           </div>
           <div className="mt-4 pt-4 border-t border-gray-800">
