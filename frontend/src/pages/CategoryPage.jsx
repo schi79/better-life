@@ -197,9 +197,9 @@ const CategoryPage = ({ cartItems, onAddToCart, onCartClick, onAddToWishlist }) 
         <Button
           onClick={() => onAddToCart(product, product.variants[0])}
           className="w-full bg-emerald-600 hover:bg-emerald-700 text-white"
-          disabled={!product.inStock}
+          disabled={!product.in_stock}
         >
-          {product.inStock ? 'Add to Cart' : 'Out of Stock'}
+          {product.in_stock ? 'Add to Cart' : 'Out of Stock'}
         </Button>
       </div>
     </div>
