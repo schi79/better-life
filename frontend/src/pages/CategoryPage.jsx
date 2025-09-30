@@ -14,12 +14,60 @@ const API = `${BACKEND_URL}/api`;
 const CategoryPage = ({ cartItems, onAddToCart, onCartClick, onAddToWishlist }) => {
   const { category } = useParams();
   const [sortBy, setSortBy] = useState('featured');
-  
-  const categoryData = categories.find(c => c.slug === category);
-  const categoryProducts = products.filter(p => p.category === category);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [categoryData, setCategoryData] = useState(null);
+
+  // Define category mappings
+  const categoryMappings = {
+    'high-thca-flowers': {
+      name: 'High THCa Flowers',
+      description: 'Premium THCa flower strains',
+      image: 'https://hmp.store/wp-content/uploads/2025/08/Deep-Spac.png'
+    },
+    'concentrates': {
+      name: 'Concentrates',
+      description: 'Live rosin & concentrates',
+      image: 'https://hmp.store/wp-content/uploads/2025/07/THCa-Dantes-Driver-Rosin-a-300x300.jpg'
+    },
+    'bundles': {
+      name: 'Bundles',
+      description: 'Value packs & deals',
+      image: 'https://hmp.store/wp-content/uploads/2025/07/Bubble-Gum-Runtz.png'
+    },
+    'wholesale': {
+      name: 'Wholesale',
+      description: 'Bulk pricing available',
+      image: 'https://hmp.store/wp-content/uploads/2025/08/mochi-2.png'
+    }
+  };
+
+  useEffect(() => {
+    const fetchCategoryProducts = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get(`${API}/products/`, {
+          params: {
+            category: category,
+            limit: 100
+          }
+        });
+        setProducts(response.data);
+        setCategoryData(categoryMappings[category]);
+      } catch (error) {
+        console.error('Error fetching category products:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (category) {
+      fetchCategoryProducts();
+    }
+  }, [category]);
 
   // Sort products
-  const sortedProducts = [...categoryProducts].sort((a, b) => {
+  const sortedProducts = [...products].sort((a, b) => {
     switch (sortBy) {
       case 'price-low':
         return a.price - b.price;
