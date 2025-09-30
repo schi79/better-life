@@ -13,9 +13,9 @@ const ProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
     : 0;
 
   return (
-    <div className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 group overflow-hidden border border-gray-100">
-      {/* Product Image */}
-      <Link to={`/product/${product.slug}`}>
+    <Link to={`/product/${product.slug}`} className="block">
+      <div className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 group overflow-hidden border border-gray-100">
+        {/* Product Image */}
         <div className="relative aspect-square overflow-hidden">
           <img
             src={product.image}
@@ -47,26 +47,27 @@ const ProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
             </Badge>
           )}
         </div>
-      </Link>
 
-      {/* Wishlist Button */}
-      <Button
-        variant="ghost"
-        size="icon"
-        className="absolute top-3 right-3 bg-white/80 hover:bg-white text-gray-600 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-all duration-300"
-        onClick={() => onAddToWishlist(product)}
-      >
-        <Heart className="h-4 w-4" />
-      </Button>
+        {/* Wishlist Button */}
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute top-3 right-3 bg-white/80 hover:bg-white text-gray-600 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-all duration-300"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            onAddToWishlist(product);
+          }}
+        >
+          <Heart className="h-4 w-4" />
+        </Button>
 
-      {/* Product Info */}
-      <div className="p-4">
-        {/* Product Name */}
-        <Link to={`/product/${product.slug}`}>
+        {/* Product Info */}
+        <div className="p-4">
+          {/* Product Name */}
           <h3 className="font-semibold text-gray-800 mb-2 line-clamp-2 group-hover:text-emerald-600 transition-colors">
             {product.name}
           </h3>
-        </Link>
 
         {/* Variant Selection */}
         <div className="flex flex-wrap gap-1 mb-3">
