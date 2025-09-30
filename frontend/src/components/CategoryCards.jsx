@@ -42,7 +42,7 @@ const CategoryCards = () => {
           {categories.map((category, index) => (
             <Link
               key={index}
-              to={`/category/${category.name.toLowerCase()}`}
+              to={`/category/${category.slug}`}
               className={`relative rounded-2xl overflow-hidden group cursor-pointer bg-gradient-to-br ${category.color} hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl`}
             >
               {/* Background Image */}
