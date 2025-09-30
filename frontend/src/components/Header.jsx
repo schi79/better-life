@@ -175,7 +175,7 @@ const Header = ({ cartItems = [], onCartClick }) => {
               <Button variant="ghost" size="icon">
                 <User className="h-5 w-5" />
               </Button>
-              <Button variant="ghost" size="icon" className="relative">
+              <Button variant="ghost" size="icon" className="relative" onClick={onCartClick}>
                 <ShoppingCart className="h-5 w-5" />
                 {cartItemCount > 0 && (
                   <Badge className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs bg-emerald-600">
