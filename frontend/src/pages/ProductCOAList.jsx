@@ -1,419 +1,206 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Download, Shield, FileText } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ExternalLink, FileText, Shield } from 'lucide-react';
 import { Button } from '../components/ui/button';
+import { Badge } from '../components/ui/badge';
+import axios from 'axios';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
+
 const ProductCOAList = ({ cartItems, onCartClick }) => {
-  // COA data organized by categories
-  const coaData = {
-    flowers: [
-      {
-        name: 'High THCa Deep Space',
-        slug: 'high-thca-deep-space',
-        pdfUrl: '#'
-      },
-      {
-        name: 'High THCa Purple Soda',
-        slug: 'high-thca-purple-soda',
-        pdfUrl: '#'
-      },
-      {
-        name: 'High THCa Cookies and Cream',
-        slug: 'high-thca-cookies-cream',
-        pdfUrl: '#'
-      },
-      {
-        name: 'High THCa Mochi',
-        slug: 'high-thca-mochi',
-        pdfUrl: '#'
-      },
-      {
-        name: 'High THCa Dirty Taxi - Light Dep',
-        slug: 'high-thca-dirty-taxi-light-dep',
-        pdfUrl: '#'
-      },
-      {
-        name: 'High THCa Orange Sunset - Light Dep',
-        slug: 'high-thca-orange-sunset-light-dep',
-        pdfUrl: '#'
-      },
-      {
-        name: 'High THCa Z Cake - Light Dep',
-        slug: 'high-thca-z-cake-light-dep',
-        pdfUrl: '#'
-      },
-      {
-        name: 'High THCa Obama Runtz',
-        slug: 'high-thca-obama-runtz',
-        pdfUrl: '#'
-      },
-      {
-        name: 'High THCa Bubblegum Runtz',
-        slug: 'high-thca-bubblegum-runtz-bundle',
-        pdfUrl: '#'
-      },
-      // Additional flowers from original site
-      {
-        name: 'Galactic Runtz',
-        slug: 'galactic-runtz',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Truffle Cake',
-        slug: 'truffle-cake',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Grape Cream Cake',
-        slug: 'grape-cream-cake',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Duck Sauce',
-        slug: 'duck-sauce',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Gelato 45',
-        slug: 'gelato-45',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Biscotti Diesel',
-        slug: 'biscotti-diesel',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Apple Runtz',
-        slug: 'apple-runtz',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Gelato 41',
-        slug: 'gelato-41',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Garlic Cocktail',
-        slug: 'garlic-cocktail',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Lemon Gas',
-        slug: 'lemon-gas',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Gary Payton',
-        slug: 'gary-payton',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Apricot Scones',
-        slug: 'apricot-scones',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Mocha',
-        slug: 'mocha',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Kept Secret',
-        slug: 'kept-secret',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Zoap',
-        slug: 'zoap',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Chocolate Tie',
-        slug: 'chocolate-tie',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Blue Dream Pie',
-        slug: 'blue-dream-pie',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Ghost Rider',
-        slug: 'ghost-rider',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Lemon Drop',
-        slug: 'lemon-drop',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Oreo Blizzard',
-        slug: 'oreo-blizzard',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Perm Marker',
-        slug: 'perm-marker',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Garlic Crusher',
-        slug: 'garlic-crusher',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Mochi Cake',
-        slug: 'mochi-cake',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Sour Animals',
-        slug: 'sour-animals',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Black Garlic',
-        slug: 'black-garlic',
-        pdfUrl: '#'
-      },
-      {
-        name: 'White Trufflez',
-        slug: 'white-trufflez',
-        pdfUrl: '#'
-      },
-      {
-        name: 'White Peaches',
-        slug: 'white-peaches',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Tropicana Cherries',
-        slug: 'tropicana-cherries',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Strawberry Strudel',
-        slug: 'strawberry-strudel',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Starburst',
-        slug: 'starburst',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Sour Joker',
-        slug: 'sour-joker',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Rainbow Sherbert',
-        slug: 'rainbow-sherbert',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Rainbow Gelato',
-        slug: 'rainbow-gelato',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Krypto Chronic',
-        slug: 'krypto-chronic',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Blue Cherry Gelato',
-        slug: 'blue-cherry-gelato',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Birthday Cake',
-        slug: 'birthday-cake',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Kush Mintz',
-        slug: 'kush-mintz',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Rainbow Road',
-        slug: 'rainbow-road',
-        pdfUrl: '#'
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState('all');
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get(`${API}/products/`, {
+          params: { limit: 100 }
+        });
+        setProducts(response.data);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      } finally {
+        setLoading(false);
       }
-    ],
-    concentrates: [
-      {
-        name: 'Big Dipper Live Rosin',
-        slug: 'big-dipper-live-rosin',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Dante\'s Inferno Rosin',
-        slug: 'dantes-inferno-rosin',
-        pdfUrl: '#'
-      },
-      {
-        name: 'White Runtz Rosin',
-        slug: 'white-runtz-rosin',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Skywalker OG Rosin',
-        slug: 'skywalker-og-rosin',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Blueberry Muffin Rosin',
-        slug: 'blueberry-muffin-rosin',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Diamonds Gusherz',
-        slug: 'diamonds-gusherz',
-        pdfUrl: '#'
-      },
-      {
-        name: 'Moroccan Hash',
-        slug: 'moroccan-hash',
-        pdfUrl: '#'
-      },
-      {
-        name: 'THCa Sugar Wax',
-        slug: 'thca-sugar-wax',
-        pdfUrl: '#'
-      },
-      {
-        name: 'THCa Diamonds',
-        slug: 'thca-diamonds',
-        pdfUrl: '#'
-      }
-    ]
+    };
+
+    fetchProducts();
+  }, []);
+
+  // Group products by category
+  const productsByCategory = products.reduce((acc, product) => {
+    const category = product.category;
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push(product);
+    return acc;
+  }, {});
+
+  // Filter products based on selected category
+  const filteredProducts = selectedCategory === 'all' 
+    ? productsByCategory 
+    : { [selectedCategory]: productsByCategory[selectedCategory] || [] };
+
+  const categoryLabels = {
+    'high-thca-flowers': 'FLOWERS',
+    'concentrates': 'CONCENTRATES',
+    'edibles': 'EDIBLES',
+    'bundles': 'BUNDLES',
+    'wholesale': 'WHOLESALE'
   };
+
+  const COAProductCard = ({ product }) => (
+    <div className="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+      <div className="flex items-center justify-between">
+        <div className="flex-1">
+          <h3 className="font-medium text-gray-800 mb-1">{product.name}</h3>
+          <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
+            <Badge variant="outline" className="text-xs">
+              {product.type}
+            </Badge>
+            {product.thca_percentage && (
+              <Badge variant="outline" className="text-xs bg-purple-50 text-purple-600">
+                {product.thca_percentage} THCa
+              </Badge>
+            )}
+          </div>
+          <p className="text-xs text-gray-400">Lab tested for purity and potency</p>
+        </div>
+        <div className="ml-4">
+          <Button
+            asChild
+            size="sm"
+            className="bg-emerald-600 hover:bg-emerald-700 text-white"
+          >
+            <a 
+              href={`${BACKEND_URL}/api/coa/${product.slug}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1"
+            >
+              <FileText className="h-3 w-3" />
+              View
+              <ExternalLink className="h-3 w-3" />
+            </a>
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Header cartItems={cartItems} onCartClick={onCartClick} />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Breadcrumb */}
-        <nav className="flex items-center space-x-2 text-sm text-gray-500 mb-8">
-          <Link to="/" className="hover:text-emerald-600">Home</Link>
-          <span>/</span>
-          <span className="text-gray-800">Product COAs</span>
-        </nav>
-
         {/* Header Section */}
-        <div className="text-center mb-16">
-          <div className="flex justify-center mb-6">
-            <div className="bg-emerald-100 rounded-full p-4">
-              <Shield className="h-12 w-12 text-emerald-600" />
-            </div>
+        <div className="text-center mb-12">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Shield className="h-8 w-8 text-emerald-600" />
+            <h1 className="text-4xl font-bold text-gray-800">Products COAs</h1>
           </div>
-          
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            Products COAs
-          </h1>
-          
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             View detailed lab reports for each product in our collection. These COAs verify potency, 
             purity, and safety through certified third-party testing.
           </p>
-        </div>
-
-        {/* Flowers Section */}
-        <div className="mb-16">
-          <div className="flex items-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-800 uppercase tracking-wider">
-              FLOWERS
-            </h2>
-            <div className="ml-4 flex-1 h-px bg-gray-300"></div>
-          </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-            {coaData.flowers.map((product, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow duration-300">
-                <div className="flex items-center justify-between mb-4">
-                  <FileText className="h-6 w-6 text-emerald-600" />
-                  <Download className="h-4 w-4 text-gray-400" />
-                </div>
-                
-                <h3 className="font-semibold text-gray-800 mb-4 text-sm leading-tight">
-                  {product.name}
-                </h3>
-                
-                <Link 
-                  to={`/product-coa/${product.slug}`}
-                  className="inline-block w-full"
-                >
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="w-full text-emerald-600 border-emerald-600 hover:bg-emerald-600 hover:text-white transition-colors"
-                  >
-                    View
-                  </Button>
-                </Link>
-              </div>
+          {/* Quality Assurance Badges */}
+          <div className="flex flex-wrap justify-center gap-6 mt-8 mb-8">
+            <div className="flex items-center gap-2 text-emerald-600">
+              <div className="w-2 h-2 bg-emerald-600 rounded-full"></div>
+              <span className="text-sm font-medium">Third-Party Tested</span>
+            </div>
+            <div className="flex items-center gap-2 text-emerald-600">
+              <div className="w-2 h-2 bg-emerald-600 rounded-full"></div>
+              <span className="text-sm font-medium">Potency Verified</span>
+            </div>
+            <div className="flex items-center gap-2 text-emerald-600">
+              <div className="w-2 h-2 bg-emerald-600 rounded-full"></div>
+              <span className="text-sm font-medium">Purity Confirmed</span>
+            </div>
+            <div className="flex items-center gap-2 text-emerald-600">
+              <div className="w-2 h-2 bg-emerald-600 rounded-full"></div>
+              <span className="text-sm font-medium">Safety Compliance</span>
+            </div>
+          </div>
+
+          {/* Category Filter */}
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
+            <Button
+              variant={selectedCategory === 'all' ? 'default' : 'outline'}
+              onClick={() => setSelectedCategory('all')}
+              size="sm"
+              className={selectedCategory === 'all' ? 'bg-emerald-600 hover:bg-emerald-700' : ''}
+            >
+              All Categories
+            </Button>
+            {Object.keys(productsByCategory).map((category) => (
+              <Button
+                key={category}
+                variant={selectedCategory === category ? 'default' : 'outline'}
+                onClick={() => setSelectedCategory(category)}
+                size="sm"
+                className={selectedCategory === category ? 'bg-emerald-600 hover:bg-emerald-700' : ''}
+              >
+                {categoryLabels[category] || category.toUpperCase()}
+              </Button>
             ))}
           </div>
         </div>
 
-        {/* Concentrates Section */}
-        <div className="mb-16">
-          <div className="flex items-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-800 uppercase tracking-wider">
-              CONCENTRATES
-            </h2>
-            <div className="ml-4 flex-1 h-px bg-gray-300"></div>
+        {/* Products by Category */}
+        {loading ? (
+          <div className="text-center py-16">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600 mx-auto mb-4"></div>
+            <p className="text-gray-600">Loading COA documents...</p>
           </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-            {coaData.concentrates.map((product, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow duration-300">
-                <div className="flex items-center justify-between mb-4">
-                  <FileText className="h-6 w-6 text-emerald-600" />
-                  <Download className="h-4 w-4 text-gray-400" />
+        ) : (
+          <div className="space-y-12">
+            {Object.entries(filteredProducts).map(([category, categoryProducts]) => (
+              categoryProducts && categoryProducts.length > 0 && (
+                <div key={category}>
+                  <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+                    {categoryLabels[category] || category.toUpperCase()}
+                  </h2>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {categoryProducts.map((product) => (
+                      <COAProductCard key={product.id} product={product} />
+                    ))}
+                  </div>
                 </div>
-                
-                <h3 className="font-semibold text-gray-800 mb-4 text-sm leading-tight">
-                  {product.name}
-                </h3>
-                
-                <Link 
-                  to={`/product-coa/${product.slug}`}
-                  className="inline-block w-full"
-                >
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="w-full text-emerald-600 border-emerald-600 hover:bg-emerald-600 hover:text-white transition-colors"
-                  >
-                    View
-                  </Button>
-                </Link>
-              </div>
+              )
             ))}
           </div>
-        </div>
+        )}
 
-        {/* Important Notice */}
-        <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-6">
-          <div className="flex items-start">
-            <Shield className="h-6 w-6 text-emerald-600 mt-1 mr-3 flex-shrink-0" />
+        {/* No Products Message */}
+        {!loading && Object.keys(filteredProducts).length === 0 && (
+          <div className="text-center py-16">
+            <FileText className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+            <h3 className="text-lg font-medium text-gray-800 mb-2">No COAs Available</h3>
+            <p className="text-gray-600">
+              COA documents will be available as products are added to this category.
+            </p>
+          </div>
+        )}
+
+        {/* Disclaimer */}
+        <div className="mt-16 bg-blue-50 border border-blue-200 rounded-lg p-6">
+          <div className="flex items-start gap-3">
+            <Shield className="h-6 w-6 text-blue-600 mt-1" />
             <div>
-              <h3 className="font-semibold text-emerald-800 mb-2">
-                Third-Party Lab Testing
-              </h3>
-              <p className="text-emerald-700 text-sm leading-relaxed">
-                All our products are tested by certified third-party laboratories to ensure quality, 
-                potency, and safety. Each Certificate of Analysis (COA) provides detailed information 
-                about cannabinoid profiles, terpenes, and contaminant testing results including 
-                pesticides, heavy metals, residual solvents, and microbials.
+              <h3 className="font-semibold text-blue-800 mb-2">About Our COAs</h3>
+              <p className="text-blue-700 text-sm leading-relaxed">
+                All Certificate of Analysis (COA) documents are provided by certified third-party laboratories. 
+                These reports verify the potency, purity, and safety of our products through comprehensive testing 
+                for cannabinoids, terpenes, pesticides, heavy metals, residual solvents, and microbials. 
+                Results ensure compliance with industry standards and regulations.
               </p>
             </div>
           </div>
