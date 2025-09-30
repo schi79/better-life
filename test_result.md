@@ -209,15 +209,18 @@ frontend:
 
   - task: "Product Detail Pages"
     implemented: true
-    working: false
+    working: true
     file: "/app/frontend/src/pages/ProductDetail.jsx"
-    stuck_count: 1
+    stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: false
         agent: "testing"
         comment: "❌ ISSUE - Product detail page navigation redirects back to homepage with age verification modal. Direct product URLs may not be working properly. Need to investigate routing configuration."
+      - working: true
+        agent: "testing"
+        comment: "✅ FIXED - Product detail pages now working correctly! Age verification modal appears on initial load but after clicking 'Yes', product navigation works perfectly. Direct product URLs work fine. COA links from product pages also functional. Product detail pages show complete information including THCa percentages, effects, pricing, variants, and lab testing links."
 
   - task: "Shop Page & Filtering"
     implemented: true
