@@ -15,54 +15,58 @@ const ProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
   return (
     <div className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 group overflow-hidden border border-gray-100">
       {/* Product Image */}
-      <div className="relative aspect-square overflow-hidden">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-        />
-        
-        {/* Discount Badge */}
-        {discount > 0 && (
-          <Badge className="absolute top-3 left-3 bg-red-500 hover:bg-red-600 text-white">
-            {discount}% OFF
-          </Badge>
-        )}
+      <Link to={`/product/${product.slug}`}>
+        <div className="relative aspect-square overflow-hidden">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          
+          {/* Discount Badge */}
+          {discount > 0 && (
+            <Badge className="absolute top-3 left-3 bg-red-500 hover:bg-red-600 text-white">
+              {discount}% OFF
+            </Badge>
+          )}
 
-        {/* Wishlist Button */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="absolute top-3 right-3 bg-white/80 hover:bg-white text-gray-600 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-all duration-300"
-          onClick={() => onAddToWishlist(product)}
-        >
-          <Heart className="h-4 w-4" />
-        </Button>
-
-        {/* Type Badge */}
-        <Badge 
-          variant="secondary" 
-          className="absolute bottom-3 left-3 bg-emerald-100 text-emerald-700 capitalize"
-        >
-          {product.type}
-        </Badge>
-        
-        {/* THCa Percentage Badge */}
-        {product.thca && (
+          {/* Type Badge */}
           <Badge 
-            className="absolute bottom-3 right-3 bg-purple-600 hover:bg-purple-700 text-white"
+            variant="secondary" 
+            className="absolute bottom-3 left-3 bg-emerald-100 text-emerald-700 capitalize"
           >
-            {product.thca} THCa
+            {product.type}
           </Badge>
-        )}
-      </div>
+          
+          {/* THCa Percentage Badge */}
+          {product.thca && (
+            <Badge 
+              className="absolute bottom-3 right-3 bg-purple-600 hover:bg-purple-700 text-white"
+            >
+              {product.thca} THCa
+            </Badge>
+          )}
+        </div>
+      </Link>
+
+      {/* Wishlist Button */}
+      <Button
+        variant="ghost"
+        size="icon"
+        className="absolute top-3 right-3 bg-white/80 hover:bg-white text-gray-600 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-all duration-300"
+        onClick={() => onAddToWishlist(product)}
+      >
+        <Heart className="h-4 w-4" />
+      </Button>
 
       {/* Product Info */}
       <div className="p-4">
         {/* Product Name */}
-        <h3 className="font-semibold text-gray-800 mb-2 line-clamp-2 group-hover:text-emerald-600 transition-colors">
-          {product.name}
-        </h3>
+        <Link to={`/product/${product.slug}`}>
+          <h3 className="font-semibold text-gray-800 mb-2 line-clamp-2 group-hover:text-emerald-600 transition-colors">
+            {product.name}
+          </h3>
+        </Link>
 
         {/* Variant Selection */}
         <div className="flex flex-wrap gap-1 mb-3">
