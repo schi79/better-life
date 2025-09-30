@@ -104,7 +104,7 @@ const Header = ({ cartItems = [], onCartClick }) => {
               </div>
 
               <a href="/bulk-deals" className="text-gray-700 hover:text-emerald-600 font-medium">
-                Bulk Deals
+                Wholesale Deals
               </a>
               <a href="/contact" className="text-gray-700 hover:text-emerald-600 font-medium">
                 Contact Us
