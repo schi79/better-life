@@ -161,7 +161,30 @@ const ProductGrid = ({
   onAddToCart = () => {},
   onAddToWishlist = () => {}
 }) => {
-  const displayProducts = showAll ? products : products.slice(0, limit);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get(`${API}/products/`, {
+          params: {
+            featured: !showAll,
+            limit: showAll ? 100 : limit
+          }
+        });
+        setProducts(response.data);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, [showAll, limit]);
+
+  const displayProducts = products;
 
   return (
     <section className="py-16 bg-white">
