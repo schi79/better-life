@@ -30,6 +30,16 @@ const CategoryPage = ({ cartItems, onAddToCart, onCartClick, onAddToWishlist }) 
       description: 'Live rosin & concentrates',
       image: 'https://hmp.store/wp-content/uploads/2025/07/THCa-Dantes-Driver-Rosin-a-300x300.jpg'
     },
+    'edibles': {
+      name: 'Edibles',
+      description: 'THCa gummies, chocolates & treats',
+      image: 'https://hmp.store/wp-content/uploads/2025/08/gummies-placeholder.jpg'
+    },
+    'vapes': {
+      name: 'Vapes',
+      description: 'Vape cartridges & disposables',
+      image: 'https://hmp.store/wp-content/uploads/2025/08/vape-placeholder.jpg'
+    },
     'bundles': {
       name: 'Bundles',
       description: 'Value packs & deals',
