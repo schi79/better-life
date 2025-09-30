@@ -140,6 +140,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "✅ PASSED - Product filtering by category and type working correctly. Category filtering (high-thca-flowers) returned 5 products, type filtering (Indica) returned 1 product. All filter parameters functional."
+      - working: true
+        agent: "testing"
+        comment: "✅ RE-TESTED AFTER CATEGORY FIXES - Category navigation fixes verified! Edibles category properly supported (0 products but valid response), concentrates category returns 1 product with Big Dipper Live Rosin found. All category mappings working correctly: high-thca-flowers (5), edibles (0), concentrates (1), bundles, wholesale all functional."
 
   - task: "Products API - Get product by slug"
     implemented: true
