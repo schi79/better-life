@@ -236,6 +236,9 @@ frontend:
       - working: true
         agent: "testing"
         comment: "✅ PASSED - Shop page navigation works, shows 'Shop THCa Products' with 10 products displayed, filtering controls available (category, type, price range), sorting functionality present. Product grid shows THCa percentages and strain types."
+      - working: true
+        agent: "testing"
+        comment: "✅ MOBILE FILTERS RE-TESTED - Mobile filter functionality works correctly. On mobile (375x667): filters are hidden by default, 'Show Filters' button appears and toggles filter visibility properly. On desktop (1920x1080): filters sidebar is visible by default. Products grid responsive and fits mobile viewport without horizontal scrolling. Minor: Show Filters button not completely hidden on desktop (cosmetic issue only)."
 
   - task: "COA (Certificate of Analysis) Pages"
     implemented: true
