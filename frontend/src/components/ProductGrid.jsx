@@ -221,14 +221,28 @@ const ProductGrid = ({
 
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
-          {displayProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              onAddToCart={onAddToCart}
-              onAddToWishlist={onAddToWishlist}
-            />
-          ))}
+          {loading ? (
+            // Loading skeletons
+            Array(8).fill().map((_, i) => (
+              <div key={i} className="bg-white rounded-xl shadow-sm border border-gray-100 animate-pulse">
+                <div className="aspect-square bg-gray-200 rounded-t-xl"></div>
+                <div className="p-4">
+                  <div className="h-4 bg-gray-200 rounded mb-2"></div>
+                  <div className="h-3 bg-gray-200 rounded w-2/3 mb-4"></div>
+                  <div className="h-8 bg-gray-200 rounded"></div>
+                </div>
+              </div>
+            ))
+          ) : (
+            displayProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                onAddToCart={onAddToCart}
+                onAddToWishlist={onAddToWishlist}
+              />
+            ))
+          )}
         </div>
 
         {/* Load More Button */}
