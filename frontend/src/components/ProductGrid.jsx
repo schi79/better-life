@@ -45,6 +45,15 @@ const ProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
         >
           {product.type}
         </Badge>
+        
+        {/* THCa Percentage Badge */}
+        {product.thca && (
+          <Badge 
+            className="absolute bottom-3 right-3 bg-purple-600 hover:bg-purple-700 text-white"
+          >
+            {product.thca} THCa
+          </Badge>
+        )}
       </div>
 
       {/* Product Info */}
