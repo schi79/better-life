@@ -184,15 +184,15 @@ const Shop = ({ cartItems, onAddToCart, onCartClick, onAddToWishlist }) => {
         </nav>
 
         {/* Page Header */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">Shop THCa Products</h1>
-            <p className="text-gray-600">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">Shop THCa Products</h1>
+            <p className="text-gray-600 text-sm sm:text-base">
               Showing {filteredProducts.length} of {products.length} products
             </p>
           </div>
           
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4 w-full sm:w-auto">
             {/* View Toggle */}
             <div className="flex border rounded-lg">
               <button
@@ -211,7 +211,7 @@ const Shop = ({ cartItems, onAddToCart, onCartClick, onAddToWishlist }) => {
 
             {/* Sort */}
             <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="w-48">
+              <SelectTrigger className="w-36 sm:w-48">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
