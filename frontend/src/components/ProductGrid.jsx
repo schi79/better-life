@@ -116,7 +116,7 @@ const ProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
             ))}
           </div>
           <span className="text-sm text-gray-500">
-            {product.rating} ({product.reviews})
+            {product.rating} ({product.review_count})
           </span>
         </div>
 
