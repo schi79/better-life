@@ -271,43 +271,43 @@ export const testimonials = [
 export const blogPosts = [
   {
     id: 1,
-    title: 'The Science Behind Vitamin D3 and K2 Synergy',
-    slug: 'vitamin-d3-k2-synergy-science',
-    excerpt: 'Discover why combining Vitamin D3 with K2 creates a powerful duo for bone health and immune support.',
-    image: 'https://images.pexels.com/photos/3683099/pexels-photo-3683099.jpeg',
-    date: '2025-01-15',
-    author: 'Dr. Lisa Chen',
-    category: 'Nutrition'
+    title: 'Indoor vs. Light Deprivation vs. Outdoor Cannabis',
+    slug: 'indoor-vs-light-deprivation-vs-outdoor-cannabis',
+    excerpt: 'Learn the differences between indoor, light dep, and outdoor cannabis cultivation methods and their effects on quality and potency.',
+    image: 'https://hmp.store/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-23-at-64602-PM-1024x682.jpeg',
+    date: '2025-06-23',
+    author: 'Better Lifestyles Team',
+    category: 'Education'
   },
   {
     id: 2,
-    title: 'Building Your Perfect Home Gym on Any Budget',
-    slug: 'home-gym-budget-guide',
-    excerpt: 'Complete guide to creating an effective home workout space without breaking the bank.',
-    image: 'https://images.unsplash.com/photo-1627257058769-0a99529e4312',
-    date: '2025-01-10',
-    author: 'Mike Johnson',
-    category: 'Fitness'
+    title: 'THCA: The Untapped Potential of Raw Cannabis',
+    slug: 'thca-the-untapped-potential-of-raw-cannabis',
+    excerpt: 'Discover the unique properties of THCA and how it differs from THC in terms of effects, benefits, and consumption methods.',
+    image: 'https://hmp.store/wp-content/uploads/2025/05/BLOG_IAMGE_1-1-2-1024x683.webp',
+    date: '2025-05-23',
+    author: 'Better Lifestyles Team',
+    category: 'Science'
   },
   {
     id: 3,
-    title: 'Natural Skincare: Understanding Your Skin Type',
-    slug: 'natural-skincare-skin-types',
-    excerpt: 'Learn how to identify your skin type and choose the right natural skincare products for optimal results.',
-    image: 'https://images.pexels.com/photos/3321416/pexels-photo-3321416.jpeg',
-    date: '2025-01-05',
-    author: 'Sarah Williams',
-    category: 'Skincare'
+    title: 'THCa Flower: The Ultimate Guide for Curious Consumers',
+    slug: 'thca-flower-the-ultimate-guide-for-curious-consumers',
+    excerpt: 'Everything you need to know about THCa flower - from what it is to how to use it safely and effectively.',
+    image: 'https://hmp.store/wp-content/uploads/2025/05/Blog_Image_2-1-1-1.png',
+    date: '2025-05-18',
+    author: 'Better Lifestyles Team',
+    category: 'Guide'
   },
   {
     id: 4,
-    title: 'The Ultimate Guide to Daily Wellness Routines',
-    slug: 'daily-wellness-routines-guide',
-    excerpt: 'Discover how to create sustainable daily wellness habits that transform your health and energy.',
-    image: 'https://images.pexels.com/photos/6694187/pexels-photo-6694187.jpeg',
-    date: '2024-12-28',
-    author: 'Emma Davis',
-    category: 'Wellness'
+    title: 'The Ultimate Guide to Choosing the Right Cannabis Strain for You',
+    slug: 'the-ultimate-guide-to-choosing-the-right-cannabis-strain-for-you',
+    excerpt: 'Navigate the world of cannabis strains with confidence. Learn how to select the perfect strain based on your needs and preferences.',
+    image: 'https://hmp.store/wp-content/uploads/2025/03/Rectangle-34625171.png',
+    date: '2025-02-07',
+    author: 'Better Lifestyles Team',
+    category: 'Guide'
   }
 ];
 
