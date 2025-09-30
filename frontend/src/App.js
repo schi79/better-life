@@ -213,6 +213,15 @@ function App() {
               />
             }
           />
+          <Route 
+            path="/product-coa/" 
+            element={
+              <ProductCOAList 
+                cartItems={cartItems}
+                onCartClick={handleCartClick}
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
       
