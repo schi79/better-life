@@ -227,6 +227,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "✅ PASSED - GET /api/coa/{product_slug} endpoint working correctly. Retrieved comprehensive COA for 'High THCa Deep Space' with 6 cannabinoids, 5 terpenes, and contaminant testing data. Critical for cannabis compliance requirements."
+      - working: true
+        agent: "testing"
+        comment: "✅ RE-TESTED MULTIPLE PRODUCTS - COA API working perfectly for all available products. Successfully retrieved COA data for High THCa Deep Space, High THCa Purple Soda, and High THCa Cookies and Cream. Each COA contains 6 cannabinoids and 5 terpenes with complete lab analysis data. 100% success rate for COA endpoint."
 
   - task: "Orders API - Order creation and management"
     implemented: true
