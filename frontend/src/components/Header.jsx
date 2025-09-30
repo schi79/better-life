@@ -4,7 +4,7 @@ import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { navigationMenus } from '../data/mock';
 
-const Header = ({ cartItems = [] }) => {
+const Header = ({ cartItems = [], onCartClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
 
