@@ -6,38 +6,34 @@ const AgeVerificationModal = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // For Better Lifestyles, we don't need age verification
-    // This component is kept for structure compatibility but won't show
+    // Check if user has already been verified
     const hasVerified = localStorage.getItem('ageVerified');
     if (!hasVerified) {
-      // Auto-verify for lifestyle products
-      localStorage.setItem('ageVerified', 'true');
+      setIsOpen(true);
     }
   }, []);
 
   const handleVerification = (isOver21) => {
     if (isOver21) {
       localStorage.setItem('ageVerified', 'true');
+      setIsOpen(false);
+    } else {
+      // Redirect away if under 21
+      window.location.href = 'https://www.google.com';
     }
-    setIsOpen(false);
   };
 
-  // Don't render for Better Lifestyles
-  return null;
-
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-[425px] bg-white">
+    <Dialog open={isOpen} onOpenChange={() => {}} className="z-[100]">
+      <DialogContent className="sm:max-w-[425px] bg-white" hideClose={true}>
         <DialogHeader className="text-center">
-          <DialogTitle>
-            <img 
-              src="/logo.png" 
-              alt="Better Lifestyles" 
-              className="mx-auto mb-4 h-12"
-            />
+          <DialogTitle className="flex flex-col items-center">
+            <div className="text-2xl font-bold text-gray-800 mb-4">
+              Better Lifestyles
+            </div>
           </DialogTitle>
           <DialogDescription className="text-lg font-medium text-gray-800">
-            Are you over 18 years of age?
+            Are you over 21 years of age?
           </DialogDescription>
         </DialogHeader>
         <div className="flex gap-4 justify-center mt-6">
