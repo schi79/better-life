@@ -110,9 +110,9 @@ const CategoryPage = ({ cartItems, onAddToCart, onCartClick, onAddToWishlist }) 
           />
           
           {/* Badges */}
-          {product.originalPrice && (
+          {product.original_price && (
             <Badge className="absolute top-3 left-3 bg-red-500 text-white">
-              {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
+              {Math.round(((product.original_price - product.price) / product.original_price) * 100)}% OFF
             </Badge>
           )}
           
