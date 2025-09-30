@@ -16,6 +16,12 @@ import AgeVerificationModal from "./components/AgeVerificationModal";
 import CartSidebar from "./components/CartSidebar";
 import { Toaster } from "./components/ui/toaster";
 
+// Pages
+import ProductDetail from "./pages/ProductDetail";
+import Shop from "./pages/Shop";
+import ProductCOA from "./pages/ProductCOA";
+import CategoryPage from "./pages/CategoryPage";
+
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
