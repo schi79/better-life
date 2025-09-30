@@ -21,7 +21,7 @@ class BackendTester:
         self.test_user_data = {
             "email": "sarah.cannabis@example.com",
             "username": "sarahc420",
-            "password": "SecurePass123!",
+            "password": "Pass123!",
             "first_name": "Sarah",
             "last_name": "Cannabis"
         }
