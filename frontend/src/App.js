@@ -13,12 +13,13 @@ import TestimonialsSection from "./components/TestimonialsSection";
 import BlogSection from "./components/BlogSection";
 import Footer from "./components/Footer";
 import AgeVerificationModal from "./components/AgeVerificationModal";
+import CartSidebar from "./components/CartSidebar";
 import { Toaster } from "./components/ui/toaster";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
-const Home = ({ cartItems, onAddToCart, onAddToWishlist }) => {
+const Home = ({ cartItems, onAddToCart, onAddToWishlist, onCartClick }) => {
   const helloWorldApi = async () => {
     try {
       const response = await axios.get(`${API}/`);
@@ -34,7 +35,7 @@ const Home = ({ cartItems, onAddToCart, onAddToWishlist }) => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header cartItems={cartItems} />
+      <Header cartItems={cartItems} onCartClick={onCartClick} />
       <HeroSection />
       <CategoryCards />
       <ProductGrid 
