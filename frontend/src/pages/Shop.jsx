@@ -226,9 +226,21 @@ const Shop = ({ cartItems, onAddToCart, onCartClick, onAddToWishlist }) => {
           </div>
         </div>
 
-        <div className="flex gap-8">
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Mobile Filters Toggle */}
+          <div className="lg:hidden">
+            <Button
+              variant="outline"
+              onClick={() => setShowFilters(!showFilters)}
+              className="w-full mb-4"
+            >
+              <Filter className="h-4 w-4 mr-2" />
+              {showFilters ? 'Hide Filters' : 'Show Filters'}
+            </Button>
+          </div>
+
           {/* Filters Sidebar */}
-          <div className="w-64 space-y-6">
+          <div className={`w-full lg:w-64 space-y-6 ${showFilters ? 'block' : 'hidden lg:block'}`}>
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-semibold text-gray-800">Filters</h3>
