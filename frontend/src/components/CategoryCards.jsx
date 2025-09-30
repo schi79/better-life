@@ -36,8 +36,9 @@ const CategoryCards = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((category, index) => (
-            <div
+            <Link
               key={index}
+              to={`/category/${category.name.toLowerCase()}`}
               className={`relative rounded-2xl overflow-hidden group cursor-pointer bg-gradient-to-br ${category.color} hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl`}
             >
               {/* Background Image */}
@@ -67,7 +68,7 @@ const CategoryCards = () => {
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
