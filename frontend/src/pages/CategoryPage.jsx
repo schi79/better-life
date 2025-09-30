@@ -120,9 +120,9 @@ const CategoryPage = ({ cartItems, onAddToCart, onCartClick, onAddToWishlist }) 
             {product.type}
           </Badge>
           
-          {product.thca && (
+          {product.thca_percentage && (
             <Badge className="absolute bottom-3 right-3 bg-purple-600 text-white">
-              {product.thca} THCa
+              {product.thca_percentage} THCa
             </Badge>
           )}
 
