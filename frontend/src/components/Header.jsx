@@ -39,16 +39,16 @@ const Header = ({ cartItems = [], onCartClick }) => {
                 Shop
               </a>
               
-              {/* Supplements Dropdown */}
+              {/* Flowers Dropdown */}
               <div className="relative">
                 <button
-                  onClick={() => toggleDropdown('supplements')}
+                  onClick={() => toggleDropdown('flowers')}
                   className="flex items-center text-gray-700 hover:text-emerald-600 font-medium"
                 >
-                  Supplements
+                  Flowers
                   <ChevronDown className="ml-1 h-4 w-4" />
                 </button>
-                {activeDropdown === 'supplements' && (
+                {activeDropdown === 'flowers' && (
                   <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border z-50">
                     <div className="p-4">
                       <h3 className="font-semibold text-gray-800 mb-3">Shop by Category</h3>
@@ -68,11 +68,11 @@ const Header = ({ cartItems = [], onCartClick }) => {
                 )}
               </div>
 
-              <a href="/fitness" className="text-gray-700 hover:text-emerald-600 font-medium">
-                Fitness
+              <a href="/edibles" className="text-gray-700 hover:text-emerald-600 font-medium">
+                Edibles
               </a>
-              <a href="/skincare" className="text-gray-700 hover:text-emerald-600 font-medium">
-                Skincare
+              <a href="/concentrates" className="text-gray-700 hover:text-emerald-600 font-medium">
+                Concentrates
               </a>
               
               {/* Learn Dropdown */}
