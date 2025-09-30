@@ -277,11 +277,10 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Product Detail Pages"
-  stuck_tasks:
-    - "Product Detail Pages"
-  test_all: false
-  test_priority: "high_first"
+    - "Complete User Journey Testing"
+  stuck_tasks: []
+  test_all: true
+  test_priority: "comprehensive"
 
 agent_communication:
   - agent: "testing"
