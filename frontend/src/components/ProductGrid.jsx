@@ -11,8 +11,8 @@ const API = `${BACKEND_URL}/api`;
 const ProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
   const [selectedVariant, setSelectedVariant] = useState(product.variants[0]);
   
-  const discount = product.originalPrice 
-    ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
+  const discount = product.original_price 
+    ? Math.round(((product.original_price - product.price) / product.original_price) * 100)
     : 0;
 
   return (
